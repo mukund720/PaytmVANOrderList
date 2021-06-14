@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $.post("https://securegw.paytm.in/merchant-passbook/search/list/order/v2",
+    {
+    body:{
+    "mid": "bLPzQU62991804941749",
+    "fromDate"   : "2021-01-25T23: 59: 35+08: 00",
+    "toDate"       : "2021-06-14T23: 59: 35+08: 00",
+    "orderSearchType"   : "TRANSACTION",
+    "orderSearchStatus"  :"SUCCESS",
+    "pageNumber"   : 1,
+    "pageSize"   : 50,
+    "paymentModes": {
+        "searchKey" : "VAN_ID",
+        "searchValue" : "PYI3831611899004",
+    }
+}
+    },
+    function(data,status){
+      alert("Data: " + data + "\nStatus: " + status);
+    });
+  });
+});
+</script>
+</head>
+<body>
+
+<button>Send an HTTP POST request to a page and get the result back</button>
+
+</body>
+</html>
